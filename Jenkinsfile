@@ -67,4 +67,9 @@ pipeline {
                 sh """
                 curl -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
                 https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/statuses/${GIT_COMMIT} \
-                -d '{"state": "
+                -d '{"state": "success", "context": "security/trivy", "description": "Scan Completed"}'
+                """
+            }
+        }
+    }
+}
